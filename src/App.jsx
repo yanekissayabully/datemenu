@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { PaperPlaneTilt, Heart, ArrowDown, Leaf, CircleNotch, WarningCircle } from '@phosphor-icons/react'
-import { steaks, doneness, sides, drinks } from './data.js'
+import { steaks, doneness, sides, drinks, salad } from './data.js'
 import { sendToTelegram, telegramConfigured } from './telegram.js'
-import { BlurText, FloatingHearts, Reveal, Photo, Choice, SideIcon, DrinkIcon } from './components.jsx'
+import { BlurText, FloatingHearts, Reveal, Photo, Choice } from './components.jsx'
 
 const empty = { steak: null, doneness: null, side: null, drink: null }
 
@@ -82,7 +82,7 @@ export default function App() {
             </a>
           </div>
           <div className="hero-photo">
-            <Photo file="hero.jpg" alt="Tomimimi и свидание" fallbackIcon="heart" />
+            <Photo file="ribeye.jpg" alt="Стейк Ribeye" fallbackIcon="heart" />
           </div>
         </header>
 
@@ -123,13 +123,13 @@ export default function App() {
           <section aria-labelledby="h-side">
             <h2 id="h-side">Гарнир на выбор</h2>
             <div className="salad-note">
-              <Leaf weight="duotone" size={26} />
-              <p>Салат из листьев и свежих овощей уже входит в набор.</p>
+              <Photo file={salad.photo} alt={salad.name} className="salad-img" />
+              <p><Leaf weight="duotone" size={20} /> Салат из листьев и свежих овощей уже входит в набор.</p>
             </div>
             <div className="side-grid" role="radiogroup" aria-labelledby="h-side">
               {sides.map((s) => (
                 <Choice key={s.id} name="side" value={s.id} checked={pick.side === s.id} onChange={set('side')} className="side-card">
-                  <SideIcon type={s.icon} />
+                  <Photo file={s.photo} alt={s.name} className="side-img" />
                   <div>
                     <h3>{s.name}</h3>
                     <p>{s.desc}</p>
@@ -146,7 +146,7 @@ export default function App() {
             <div className="drink-row" role="radiogroup" aria-labelledby="h-drink">
               {drinks.map((d) => (
                 <Choice key={d.id} name="drink" value={d.id} checked={pick.drink === d.id} onChange={set('drink')} className="drink-chip">
-                  <DrinkIcon />
+                  <Photo file={d.photo} alt="" className="drink-img" />
                   {d.name}
                 </Choice>
               ))}
