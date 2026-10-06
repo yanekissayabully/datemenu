@@ -82,7 +82,7 @@ export default function App() {
             </a>
           </div>
           <div className="hero-photo">
-            <Photo file="ribeye.jpg" alt="Стейк Ribeye" fallbackIcon="heart" />
+            <Photo file="hero.jpg" alt="Tomimimi" fallbackIcon="heart" />
           </div>
         </header>
 

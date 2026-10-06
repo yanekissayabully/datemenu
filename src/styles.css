@@ -84,7 +84,7 @@ main { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; paddin
   box-shadow: var(--shadow);
   rotate: 3deg;
 }
-.hero-photo img, .hero-photo .photo-fallback { width: 100%; height: 100%; object-fit: cover; }
+.hero-photo img, .hero-photo .photo-fallback { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
 
 /* Кнопки */
 .btn {
